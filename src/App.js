@@ -1,10 +1,18 @@
 import React from 'react'
 import Login from './pages/authentication/component/Login'
+import { Route, Routes } from "react-router-dom";
+import Home from './pages/home/component/Home';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const App = () => {
   return (
-    <div>
-        <Login />
+    <div className='App'>
+      <ToastContainer autoClose={1500}/>
+      <Routes>
+        <Route path='/' element={<Login />} />
+        <Route path='/home' element={<Home />} />
+      </Routes>
     </div>
   )
 }

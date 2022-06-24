@@ -1,41 +1,31 @@
 import React, { useState } from 'react'
 import { LoginApi } from '../../../apis/auth';
+import { useNavigate } from 'react-router-dom';
+import { notify } from '../../../component/Notify';
+
 
 const Login = () => {
+    const navigate = useNavigate();
     const [userName, setUserName] = useState("");
     const [password, setPassword] = useState("");
 
-    const onSubmit = async () => {
-        try {
-            var req = {
-                "username": userName,
-                "password": password
-            }
-            LoginApi(req).then(res => {
-                const result = res;
-                // console.log(result);
-                if (result !== undefined) {
-                    if (result.jwtAuthToken !== undefined) {
-                        sessionStorage.setItem("token", result.jwtAuthToken)
-                        console.log("Login successful");
-                        setUserName("");
-                        setPassword("");
-                        // history.push("/billList")
-                    }
-                    else {
-                        setUserName("")
-                        setPassword("")
-                    }
-                }
-                else {
-                    setUserName("")
-                    setPassword("")
-                }
-            }).catch();
 
-        } catch (error) {
-            console.log(error);
+    const onSubmit = async () => {
+        const data = {
+            "username": userName,
+            "password": password
         }
+        LoginApi(data).then(res => {
+            if(res.status===200){
+                localStorage.setItem('token', res.data.jwtAuthToken);
+                notify("LOGIN_SUCCESS","You have successfully loggedin");
+                navigate("/home");
+            }
+            setUserName("");
+            setPassword("");
+        }).catch((error) => {
+            notify("LOGIN_ERROR","Login Failed");
+        });
     }
 
     return (
