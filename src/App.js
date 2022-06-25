@@ -6,17 +6,25 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import SideBar from './component/SideBar';
 import Navbar from './component/Navbar';
+import AddClaim from './pages/claim/component/AddClaim';
 
 const App = () => {
   return (
     <div className='w-full'>
       <ToastContainer autoClose={1500} />
       <Routes>
-        <Route path='/' element={<Login />} />
-        <Route path='/home' element={
+        <Route exact path='/' element={<Login />} />
+        <Route exact path='/home' element={
           <>
             <Navbar />
             <Home />
+          </>
+        }
+        />
+        <Route exact path='/addclaim' element={
+          <>
+            <Navbar />
+            <AddClaim />
           </>
         }
         />
