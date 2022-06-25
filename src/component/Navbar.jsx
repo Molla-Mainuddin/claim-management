@@ -1,7 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom';
+import ProfileMenu from './ProfileMenu';
 
 const Navbar = () => {
+
+  const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
+
+  const profileMenuToggler = ()=>{
+    isProfileMenuOpen ? setIsProfileMenuOpen(false) : setIsProfileMenuOpen(true);
+  }
+
   return (
     <nav className="bg-teal-500 shadow-md fixed top-0 z-50 w-full h-auto flex items-center justify-between py-2 px-5 lg:px-32">
       <div className="flex items-center flex-shrink-0 text-white">
@@ -18,12 +26,19 @@ const Navbar = () => {
         </button>
       </div>
       <div className="w-full hidden lg:flex lg:items-center lg:w-auto">
-        <div className="text-lg lg:flex-grow">
-          <button to="#" className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white">
-            Logout
+        <div className="text-lg lg:flex lg:items-center">
+          <button onClick={ profileMenuToggler } className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white">
+              <img
+                src="assets/user.jpg"
+                alt="no-img"
+                className="h-11 w-11 rounded-full"
+              />  
           </button>
         </div>
       </div>
+
+      {/* Profile Menu */}
+      { isProfileMenuOpen ? (<ProfileMenu />) : '' }
     </nav>
   )
 }
