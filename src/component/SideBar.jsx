@@ -52,7 +52,7 @@ const SideBar = () => {
 
                 {/* View Bill Link */}
                 <Link
-                    to="#"
+                    to="/viewbill"
                     className="px-2 py-2 mb-1 flex flex-row items-center bg-gray-800 hover:bg-teal-500 text-white text-base font-medium rounded"
                 >
                     <div className="flex items-center justify-center pr-2">
