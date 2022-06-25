@@ -11,20 +11,25 @@ const Login = () => {
 
 
     const onSubmit = async () => {
+        document.getElementById("submitButton").innerHTML="Please Wait...";
         const data = {
             "username": userName,
             "password": password
         }
         LoginApi(data).then(res => {
-            if(res.status===200){
+            if(res.status===200 && res.data.jwtAuthToken!==undefined){
                 localStorage.setItem('token', res.data.jwtAuthToken);
                 notify("LOGIN_SUCCESS","You have successfully loggedin");
                 navigate("/home");
+            }else{
+                notify("LOGIN_ERROR","Invalid Token");
             }
             setUserName("");
             setPassword("");
         }).catch((error) => {
+            // navigate("/home");
             notify("LOGIN_ERROR","Login Failed");
+            document.getElementById("submitButton").innerHTML="Login";
         });
     }
 
@@ -90,6 +95,7 @@ const Login = () => {
                             className="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg 
                             text-sm px-5 py-2.5 text-center"
                             onClick={onSubmit}
+                            id="submitButton"
                         >
                             Login
                         </button>
