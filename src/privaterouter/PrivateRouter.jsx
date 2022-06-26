@@ -7,7 +7,7 @@ const PrivateRouter = ( { children } ) => {
         if(!localStorage.getItem('token')){
             navigate("/auth");
         }
-    }, []);
+    },[]);
 
     return children;
 }

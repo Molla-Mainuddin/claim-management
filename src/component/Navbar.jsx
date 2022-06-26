@@ -4,7 +4,7 @@ import ProfileMenu from './ProfileMenu';
 
 const Navbar = () => {
 
-  const [userName, setUserName] = useState();
+  const [userName, setUserName] = useState('');
 
   useEffect(()=>{
     setUserName(localStorage.getItem('username'));

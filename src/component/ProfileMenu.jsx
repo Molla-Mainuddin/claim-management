@@ -1,6 +1,17 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
+import { notify } from './Notify';
 
 const ProfileMenu = ( {userName} ) => {
+    
+    const navigate = useNavigate();
+    
+    const logoutHandler = ()=>{
+        localStorage.clear(); 
+        navigate("/auth");
+        notify("LOGOUT_SUCCESS","Logut Successfully");
+    }
+
     return (
         <div className="w-40 absolute top-[60px] right-36 border bg-white inline-block box-content rounded shadow-md">
             <div className="flex items-center space-x-3 pl-4 py-2 border-b shadow-sm cursor-pointer">
@@ -22,8 +33,8 @@ const ProfileMenu = ( {userName} ) => {
                             clipRule="evenodd"
                         />
                     </svg>
-                    <div className="text-base">
-                        Signout
+                    <div className="text-base" onClick={ logoutHandler }>
+                        Logout
                     </div>
                 </div>
             </div>
