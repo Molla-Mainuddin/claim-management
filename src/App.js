@@ -8,10 +8,11 @@ import Navbar from './component/Navbar';
 import AddClaim from './pages/claim/component/AddClaim';
 import ViewBill from './pages/bill/components/ViewBill';
 import PrivateRouter from './privaterouter/PrivateRouter';
+import ViewClaimStatus from './pages/claim/component/ViewClaimStatus';
 
 const App = () => {
   return (
-    <div className='w-full'>
+    <div className='w-full box-border'>
       <ToastContainer autoClose={1500} />
       <Routes>
         {/* Login Page Routing */}
@@ -33,6 +34,15 @@ const App = () => {
           <PrivateRouter>
             <Navbar />
             <AddClaim />
+          </PrivateRouter>
+        }
+        />
+
+        {/* View Cliam Status Routing */}
+        <Route exact path='/viewclaimstatus' element={
+          <PrivateRouter>
+            <Navbar />
+            <ViewClaimStatus />
           </PrivateRouter>
         }
         />

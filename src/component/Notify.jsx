@@ -8,5 +8,7 @@ export const notify = (actionType,message)=>{
             return toast.error(message);
         case "LOGOUT_SUCCESS":
             return toast.success(message);
+        case "EMPTY_FIELD":
+            return toast.error(message);
     }
 }
