@@ -4,7 +4,6 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import Home from './pages/home/component/Home';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import SideBar from './component/SideBar';
 import Navbar from './component/Navbar';
 import AddClaim from './pages/claim/component/AddClaim';
 import ViewBill from './pages/bill/components/ViewBill';
@@ -17,8 +16,9 @@ const App = () => {
       <Routes>
         {/* Login Page Routing */}
         <Route exact path='/auth' element={<Login />} />
-        <Route exact path='/*' element={<Navigate to="/" />} />
-        
+
+        <Route path='/*' element={<Navigate to="/" />} />
+
         {/* Home Page Routing */}
         <Route exact path='/' element={
           <PrivateRouter>
@@ -50,4 +50,4 @@ const App = () => {
   )
 }
 
-export default App
+export default App;

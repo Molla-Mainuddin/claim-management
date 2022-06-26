@@ -1,11 +1,11 @@
 import React from 'react'
 
-const ProfileMenu = () => {
+const ProfileMenu = ( {userName} ) => {
     return (
         <div className="w-40 absolute top-[60px] right-36 border bg-white inline-block box-content rounded shadow-md">
             <div className="flex items-center space-x-3 pl-4 py-2 border-b shadow-sm cursor-pointer">
                 <div className="text-base hover:text-blue-700">
-                    <div className="text-left font-semibold">Mainuddin</div>
+                    <div className="text-left font-semibold">{userName}</div>
                 </div>
             </div>
             <div className="p-2">

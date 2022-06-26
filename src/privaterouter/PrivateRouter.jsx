@@ -1,6 +1,5 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
-import Login from '../pages/authentication/component/Login';
 
 const PrivateRouter = ( { children } ) => {
     const navigate = useNavigate();
@@ -9,7 +8,7 @@ const PrivateRouter = ( { children } ) => {
             navigate("/auth");
         }
     }, []);
-    
+
     return children;
 }
 

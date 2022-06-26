@@ -1,8 +1,14 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom';
 import ProfileMenu from './ProfileMenu';
 
 const Navbar = () => {
+
+  const [userName, setUserName] = useState();
+
+  useEffect(()=>{
+    setUserName(localStorage.getItem('username'));
+  },[]);
 
   const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
 
@@ -38,7 +44,7 @@ const Navbar = () => {
       </div>
 
       {/* Profile Menu */}
-      { isProfileMenuOpen ? (<ProfileMenu />) : '' }
+      { isProfileMenuOpen ? (<ProfileMenu userName={userName} />) : '' }
     </nav>
   )
 }
