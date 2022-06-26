@@ -13,7 +13,7 @@ const Navbar = () => {
   return (
     <nav className="bg-teal-500 shadow-md fixed top-0 z-50 w-full h-auto flex items-center justify-between py-2 px-5 lg:px-32">
       <div className="flex items-center flex-shrink-0 text-white">
-        <NavLink to="/home">
+        <NavLink to="/">
           <img src='assets/claim-logo.png' alt='broken' className='border border-teal-500 shadow-sm h-10 w-10 rounded-full cursor-pointer lg:h-12 lg:w-12 ' />
         </NavLink>
         <span className="ml-2 font-semibold text-2xl tracking-tight">Cliam Management</span>

@@ -19,9 +19,11 @@ const Login = () => {
         LoginApi(data).then(res => {
             if(res.status===200 && res.data.jwtAuthToken!==undefined){
                 localStorage.setItem('token', res.data.jwtAuthToken);
+                // localStorage.setItem('login',true);
                 notify("LOGIN_SUCCESS","You have successfully loggedin");
-                navigate("/home");
+                navigate("/");
             }else{
+                // localStorage.setItem('login',false);
                 notify("LOGIN_ERROR","Invalid Token");
             }
             setUserName("");
