@@ -12,6 +12,10 @@ const ViewClaimStatus = () => {
         if (claimid !== '') {
             FetchClaimStatusById(claimid).then((res) => {
                 // console.log(res);
+                if(res.message === "Invalid Claim ID"){
+                    notify("INVALID_DATA","Invalid Claim Id");
+                    return;
+                }
                 setClaimResponse(res);
             }).catch((err) => {
                 console.log("The error is : " + err);

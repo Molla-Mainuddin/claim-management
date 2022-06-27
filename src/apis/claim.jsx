@@ -47,7 +47,7 @@ export const SubmitClaimData = async (req) => {
 
 
 export const FetchClaimStatusById = async (id) => {
-    console.log(id);
+    // console.log(id);
     try {
         const response = await fetch(CLAIM_API_BASE_URL + `getClaimStatus/${id}`, {
             method: "GET",
@@ -66,6 +66,7 @@ export const FetchClaimStatusById = async (id) => {
         // }
         const result = await response.json();
         if (response.ok) {
+            // console.log(result);
             return result;
         }
         else if (response.status === 400) {
@@ -74,7 +75,8 @@ export const FetchClaimStatusById = async (id) => {
         else if(result.status === 500){
             console.log(result.message);
         }else if(response.status === 404){
-            console.log("Invalid Policy Id");
+            // console.log(result);
+            return result;
         }
     } catch (error) {
         console.log('Something went wrong , Please try again later.')

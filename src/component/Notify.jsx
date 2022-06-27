@@ -14,5 +14,7 @@ export const notify = (actionType,message)=>{
             return toast.success(message);
         case "SUBMIT_FAILED":
             return toast.error(message);
+        case "INVALID_DATA":
+            return toast.error(message);
     }
 }
