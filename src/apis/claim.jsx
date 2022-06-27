@@ -10,21 +10,21 @@ export const SubmitClaimData = async (req) => {
                 'Authorization': 'Bearer ' + localStorage.getItem("token")
             },
             body : JSON.stringify ({
-                "remarks":req.remarks,
-                "claimAmount":req.claimAmount,
-                "hospitalId":req.hospitalId,
-                "policyId":req.policyId,
-                "benefitId":req.benefitId,
-                "memberId":localStorage.getItem("userid")
+                "remarks": req.remarks,
+                "claimAmount": req.claimAmount,
+                "hospitalId": req.hospitalId,
+                "policyId": req.policyId,
+                "benefitId": req.benefitId,
+                "memberId": req.memberId
             })
         })
-        if (response.status === 403) {
-            console.log('Your Session has been expired, Please login again.');
-            return window.setTimeout(function () {
-                localStorage.clear();
-                window.location.href = "/";
-            }, 1000);
-        }
+        // if (response.status === 403) {
+        //     console.log('Your Session has been expired, Please login again.');
+        //     return window.setTimeout(function () {
+        //         localStorage.clear();
+        //         window.location.href = "/";
+        //     }, 1000);
+        // }
         const result = await response.json();
 
         if (response.ok) {
@@ -41,6 +41,8 @@ export const SubmitClaimData = async (req) => {
     }
 };
 
+
+
 export const FetchClaimStatusById = async (id) => {
     console.log(id);
     try {
@@ -52,7 +54,6 @@ export const FetchClaimStatusById = async (id) => {
                 'Authorization': 'Bearer ' + localStorage.getItem("token")
             }
         })
-        
         // if (response.status === 403) {
         //     console.log('Your Session has been expired, Please login again.');
         //     return window.setTimeout(function () {
@@ -69,6 +70,8 @@ export const FetchClaimStatusById = async (id) => {
         }
         else if(result.status === 500){
             console.log(result.message);
+        }else if(response.status === 404){
+            console.log("Invalid Policy Id");
         }
     } catch (error) {
         console.log('Something went wrong , Please try again later.')

@@ -22,7 +22,7 @@ const Navbar = () => {
         <NavLink to="/">
           <img src='assets/claim-logo.png' alt='broken' className='border border-teal-500 shadow-sm h-10 w-10 rounded-full cursor-pointer lg:h-12 lg:w-12 ' />
         </NavLink>
-        <span className="ml-2 font-semibold text-2xl tracking-tight">Medi Claim</span>
+        <span className="ml-2 font-semibold text-2xl tracking-tight">Claim Mnagement</span>
       </div>
       <div className="block lg:hidden">
         <button className="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white">

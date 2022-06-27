@@ -20,6 +20,7 @@ const Login = () => {
             if(res.status===200 && res.data.jwtAuthToken!==undefined){
                 localStorage.setItem('token', res.data.jwtAuthToken);
                 localStorage.setItem('username', res.data.username);
+                localStorage.setItem('mid',res.data.mid);
                 // localStorage.setItem('login',true);
                 notify("LOGIN_SUCCESS","You have successfully loggedin");
                 navigate("/");

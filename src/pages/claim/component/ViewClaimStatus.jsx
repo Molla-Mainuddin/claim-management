@@ -7,7 +7,7 @@ const ViewClaimStatus = () => {
 
     const [claimId, setClaimId] = useState('');
     const [claimResponse, setClaimResponse] = useState({});
-    console.log(claimResponse);
+   
     const onSubmit = async (claimid) => {
         if (claimid !== '') {
             FetchClaimStatusById(claimid).then((res) => {
@@ -27,6 +27,7 @@ const ViewClaimStatus = () => {
             <SideBar />
             <div className='w-full lg:w-4/5 lg:pt-20 px-10'>
                 {/* <button onClick={onSubmit} className='border hover:bg-red-400'>Submit</button> */}
+                {/* For Claim Id input field */}
                 <div className='p-4 flex items-center'>
                     <label htmlFor="claimid" className="ml-8 text-lg font-semibold font-serif text-gray-900">
                         Enter your Claim Id :
@@ -46,6 +47,8 @@ const ViewClaimStatus = () => {
                         View Status
                     </button>
                 </div>
+
+                {/* For Claim Details */}
                 <div className='flex justify-center h-auto mt-6'>
                     <div className='border rounded-xl w-1/2  shadow-lg px-8 py-8 space-y-8'>
                         <div className='border w-1/2 mx-auto text-center bg-teal-500 rounded-3xl p-1'>

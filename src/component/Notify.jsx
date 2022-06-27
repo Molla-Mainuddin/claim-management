@@ -10,5 +10,7 @@ export const notify = (actionType,message)=>{
             return toast.success(message);
         case "EMPTY_FIELD":
             return toast.error(message);
+        case "SUBMIT_SUCCESS":
+            return toast.success(message);
     }
 }
