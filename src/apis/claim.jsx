@@ -1,4 +1,7 @@
+import { useState } from "react";
+
 const CLAIM_API_BASE_URL = process.env.REACT_APP_CLAIM_API_BASE_URL;
+
 
 export const SubmitClaimData = async (req) => {
     try {
@@ -26,7 +29,7 @@ export const SubmitClaimData = async (req) => {
         //     }, 1000);
         // }
         const result = await response.json();
-
+        
         if (response.ok) {
             return result;
         }

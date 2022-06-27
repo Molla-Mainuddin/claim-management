@@ -48,7 +48,8 @@ const AddClaim = () => {
     }
 
     const onSubmit = async () => {
-        // console.log("Data is : " + memberId,policyId,hospitalId,benefitId,remarks,amount);
+        console.log("Data is : " + memberId, policyId, hospitalId, benefitId, remarks, amount);
+        document.getElementById("submitButton").innerHTML = "Data Processing...";
         var reqData = {
             "memberId": memberId,
             "policyId": policyId,
@@ -57,17 +58,23 @@ const AddClaim = () => {
             "remarks": remarks,
             "claimAmount": Number(amount)
         }
-        SubmitClaimData(reqData).then((res) => {
-            // console.log(res);
-            // console.log("Data Submitted Successfully");
-            notify("SUBMIT_SUCCESS", "Data Submitted Successfully");
-            setHospitalList([]);
-            setBenefitList([]);
-            setRemarks('');
-            setAmount('');
-        }).catch((err) => {
-            console.log(err);
-        })
+        if (policyId !== '' && hospitalId !== '' && benefitId !== '' && remarks !== '' && amount !== '') {
+            SubmitClaimData(reqData).then((res) => {
+                // console.log(res);
+                // console.log("Data Submitted Successfully");
+                notify("SUBMIT_SUCCESS", "Data Submitted Successfully");
+                document.getElementById("submitButton").innerHTML = "Submit Claim";
+                setHospitalList([]);
+                setBenefitList([]);
+                setRemarks('');
+                setAmount('');
+            }).catch((err) => {
+                console.log(err);
+            })
+        } else {
+            document.getElementById("submitButton").innerHTML = "Submit Claim";
+            notify("SUBMIT_FAILED", "all fields are required");
+        }
     };
 
     return (
@@ -118,7 +125,7 @@ const AddClaim = () => {
                                 >
                                     <option value="">Choose Hospital</option>
                                     {
-                                        hospitalList.length === 0 ? <option><p className='p-4'>Loading...</p></option> : (
+                                        policyId === '' ? <option>Choose a policy first</option> : hospitalList.length === 0 ? <option><p className='p-4'>Loading...</p></option> : (
                                             hospitalList.map((data) => {
                                                 return <option value={data.hospitalId}>{data.name}</option>
                                             })
@@ -153,6 +160,7 @@ const AddClaim = () => {
                                 <button type="button" className="text-white bg-teal-500 hover:bg-teal-700 focus:outline-none 
                                     font-medium rounded-full text-base px-5 py-2.5 text-center mr-2 mb-2"
                                     onClick={onSubmit}
+                                    id="submitButton"
                                 >
                                     Submit Claim
                                 </button>
@@ -195,7 +203,8 @@ const AddClaim = () => {
                                 >
                                     <option value="">Choose Benefit</option>
                                     {
-                                        benefitList.length === 0 ? <option>Loading...</option> : (
+
+                                        policyId === '' ? <option>Choose a policy first</option> : benefitList.length === 0 ? <option>Loading...</option> : (
                                             benefitList.map((data) => {
                                                 return <option value={data.benefitId}>{data.benefitName}</option>
                                             })
