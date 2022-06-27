@@ -3,7 +3,6 @@ import { SubmitClaimData } from '../../../apis/claim';
 import { getBenfitsData, getProviderData } from '../../../apis/policy';
 import { notify } from '../../../component/Notify';
 import SideBar from '../../../component/SideBar';
-import Spinner from '../../../component/Spinner';
 import { PolicyListItems } from './ListItem';
 
 const AddClaim = () => {
@@ -48,7 +47,7 @@ const AddClaim = () => {
     }
 
     const onSubmit = async () => {
-        console.log("Data is : " + memberId, policyId, hospitalId, benefitId, remarks, amount);
+        // console.log("Data is : " + memberId, policyId, hospitalId, benefitId, remarks, amount);
         document.getElementById("submitButton").innerHTML = "Data Processing...";
         var reqData = {
             "memberId": memberId,
@@ -81,7 +80,6 @@ const AddClaim = () => {
         <div className='flex flex-row'>
             <SideBar />
             <div className='flex justify-center w-full lg:w-4/5 lg:pt-20 px-10 mt-4'>
-                {/* <button onClick={() => onSubmit(data)} className='border hover:bg-red-400'>Submit</button> */}
                 <div className='h-[85%] w-[90%] border-2 shadow-lg rounded-xl p-4'>
                     <div className='border w-[30%] mx-auto text-center bg-teal-500 rounded-3xl py-2 '>
                         <p className='text-white text-2xl font-serif font-bold '>Add Claim</p>
@@ -125,7 +123,7 @@ const AddClaim = () => {
                                 >
                                     <option value="">Choose Hospital</option>
                                     {
-                                        policyId === '' ? <option>Choose a policy first</option> : hospitalList.length === 0 ? <option><p className='p-4'>Loading...</p></option> : (
+                                        policyId === '' ? <option value=''>Choose a policy first</option> : hospitalList.length === 0 ? <option value=''>Loading...</option> : (
                                             hospitalList.map((data) => {
                                                 return <option value={data.hospitalId}>{data.name}</option>
                                             })
@@ -204,7 +202,7 @@ const AddClaim = () => {
                                     <option value="">Choose Benefit</option>
                                     {
 
-                                        policyId === '' ? <option>Choose a policy first</option> : benefitList.length === 0 ? <option>Loading...</option> : (
+                                        policyId === '' ? <option value=''>Choose a policy first</option> : benefitList.length === 0 ? <option value=''>Loading...</option> : (
                                             benefitList.map((data) => {
                                                 return <option value={data.benefitId}>{data.benefitName}</option>
                                             })

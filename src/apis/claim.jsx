@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 const CLAIM_API_BASE_URL = process.env.REACT_APP_CLAIM_API_BASE_URL;
 
 

@@ -23,7 +23,7 @@ const ViewBill = () => {
     }
 
     const policySelector = (policyId)=>{
-        console.log(policyId);
+        // console.log(policyId);
         if(policyId === 'P101'){
             return "Health Plus Classic";
         }else if(policyId === 'P102'){

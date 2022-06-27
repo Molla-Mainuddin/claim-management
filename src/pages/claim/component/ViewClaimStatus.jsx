@@ -30,7 +30,6 @@ const ViewClaimStatus = () => {
         <div className='flex flex-row'>
             <SideBar />
             <div className='w-full lg:w-4/5 lg:pt-20 px-10'>
-                {/* <button onClick={onSubmit} className='border hover:bg-red-400'>Submit</button> */}
                 {/* For Claim Id input field */}
                 <div className='p-4 flex items-center'>
                     <label htmlFor="claimid" className="ml-8 text-lg font-semibold font-serif text-gray-900">

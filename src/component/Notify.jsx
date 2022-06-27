@@ -1,7 +1,7 @@
 import { toast } from 'react-toastify';
 
-export const notify = (actionType,message)=>{
-    switch(actionType){
+export const notify = (actionType, message) => {
+    switch (actionType) {
         case "LOGIN_SUCCESS":
             return toast.success(message);
         case "LOGIN_ERROR":
@@ -16,5 +16,7 @@ export const notify = (actionType,message)=>{
             return toast.error(message);
         case "INVALID_DATA":
             return toast.error(message);
+        default:
+            return toast.success("success");
     }
 }
