@@ -19,7 +19,7 @@ export const getBillDataById = async (memberId) => {
         //     }, 1000);
         // }
         const result = await response.json();
-        console.log(result);
+        // console.log(result);
         if (response.ok) {
             return result;
         }

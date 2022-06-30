@@ -1,11 +1,16 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { SubmitClaimData } from '../../../apis/claim';
 import { getBenfitsData, getProviderData } from '../../../apis/policy';
 import { notify } from '../../../component/Notify';
 import SideBar from '../../../component/SideBar';
 import { PolicyListItems } from './ListItem';
+import { UserClaimContext } from '../../../context/UserClaimContext';
+import { useNavigate } from 'react-router-dom';
+
 
 const AddClaim = () => {
+
+    const { userClaimDetails, setUserClaimDetails } = useContext(UserClaimContext);
 
     const [policyId, setPolicyId] = useState('');
     const [memberId, setMemberId] = useState('');
@@ -59,9 +64,10 @@ const AddClaim = () => {
         }
         if (policyId !== '' && hospitalId !== '' && benefitId !== '' && remarks !== '' && amount !== '') {
             SubmitClaimData(reqData).then((res) => {
-                console.log(res);
+                // console.log(res);
                 // console.log("Data Submitted Successfully");
                 notify("SUBMIT_SUCCESS", "Data Submitted Successfully");
+                setUserClaimDetails([...userClaimDetails, res]);
                 document.getElementById("submitButton").innerHTML = "Submit Claim";
                 setHospitalList([]);
                 setBenefitList([]);
