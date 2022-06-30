@@ -59,7 +59,7 @@ const AddClaim = () => {
         }
         if (policyId !== '' && hospitalId !== '' && benefitId !== '' && remarks !== '' && amount !== '') {
             SubmitClaimData(reqData).then((res) => {
-                // console.log(res);
+                console.log(res);
                 // console.log("Data Submitted Successfully");
                 notify("SUBMIT_SUCCESS", "Data Submitted Successfully");
                 document.getElementById("submitButton").innerHTML = "Submit Claim";
@@ -79,9 +79,9 @@ const AddClaim = () => {
     return (
         <div className='flex flex-row'>
             <SideBar />
-            <div className='flex justify-center w-full lg:w-4/5 lg:pt-20 px-10 mt-4'>
-                <div className='h-[85%] w-[90%] border-2 shadow-lg rounded-xl p-4'>
-                    <div className='border w-[30%] mx-auto text-center bg-teal-500 rounded-3xl py-2 '>
+            <div className='bg-home-image bg-no-repeat bg-cover bg-right flex justify-center w-full lg:w-4/5 lg:pt-20 px-10 mt-4'>
+                <div className='h-[85%] w-[90%] shadow-2xl rounded-xl p-4'>
+                    <div className='w-[30%] mx-auto text-center bg-teal-500 rounded-3xl py-2 '>
                         <p className='text-white text-2xl font-serif font-bold '>Add Claim</p>
                     </div>
                     <div className='px-8 mt-12 w-full h-auto flex flex-row mr-6'>

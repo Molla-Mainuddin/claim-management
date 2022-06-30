@@ -11,7 +11,9 @@ const ViewBill = () => {
 
     useEffect(() => {
         const memberId = localStorage.getItem('mid');
-        fetchBillData(memberId);
+        if(memberId){
+            fetchBillData(memberId);
+        }
     }, [])
 
     const fetchBillData = (memberId) => {
@@ -36,13 +38,13 @@ const ViewBill = () => {
     return (
         <div className='flex flex-row'>
             <SideBar />
-            <div className='w-full lg:w-4/5 lg:pt-20 px-10'>
+            <div className='w-full lg:w-4/5 lg:pt-20 px-10 bg-home-image bg-no-repeat bg-cover bg-right'>
                 {/* <button className='border' onClick={fetchBillData}>Click</button> */}
 
                 {/* For View Bill Details */}
                 <div className='flex justify-center h-auto mt-6'>
-                    <div className='border rounded-xl w-1/2  shadow-lg px-8 py-8 space-y-8'>
-                        <div className='border w-1/2 mx-auto text-center bg-teal-500 rounded-3xl p-1'>
+                    <div className='rounded-xl w-1/2  shadow-2xl px-8 py-8 space-y-8'>
+                        <div className='w-1/2 mx-auto text-center bg-teal-500 rounded-3xl p-1'>
                             <p className='text-white text-2xl font-serif font-bold'>Bill Details</p>
                         </div>
                         {

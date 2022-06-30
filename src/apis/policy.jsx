@@ -8,6 +8,7 @@ export const getProviderData = async (policyid) => {
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin' : '*',
                 'Authorization': 'Bearer ' + localStorage.getItem("token")
             }
         })
@@ -43,6 +44,7 @@ export const getBenfitsData = async (policyid,memberId) => {
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin' : '*',
                 'Authorization': 'Bearer ' + localStorage.getItem("token")
             }           
         })
@@ -76,6 +78,7 @@ export const getEligibleCLaimAmount = async (policyid) => {
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin' : '*',
                 'Authorization': 'Bearer ' + localStorage.getItem("token")
             }            
         })

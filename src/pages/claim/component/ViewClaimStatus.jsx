@@ -29,13 +29,13 @@ const ViewClaimStatus = () => {
     return (
         <div className='flex flex-row'>
             <SideBar />
-            <div className='w-full lg:w-4/5 lg:pt-20 px-10'>
+            <div className='bg-home-image bg-no-repeat bg-cover bg-right  w-full lg:w-4/5 lg:pt-20 px-10'>
                 {/* For Claim Id input field */}
                 <div className='p-4 flex items-center'>
                     <label htmlFor="claimid" className="ml-8 text-lg font-semibold font-serif text-gray-900">
                         Enter your Claim Id :
                     </label>
-                    <input className="w-1/3 border-b-2 border-teal-500 bg-transparenttext-gray-700 ml-4 mr-4 py-1 px-2 leading-tight focus:outline-none"
+                    <input className="w-1/3 border-b-2 border-teal-500 bg-transparent bg-transparenttext-gray-700 ml-4 mr-4 py-1 px-2 leading-tight focus:outline-none"
                         type="text"
                         placeholder="Claim Id"
                         aria-label="Full name"
@@ -53,21 +53,21 @@ const ViewClaimStatus = () => {
 
                 {/* For Claim Details */}
                 <div className='flex justify-center h-auto mt-6'>
-                    <div className='border rounded-xl w-1/2  shadow-lg px-8 py-8 space-y-8'>
-                        <div className='border w-1/2 mx-auto text-center bg-teal-500 rounded-3xl p-1'>
+                    <div className='rounded-xl w-1/2  shadow-2xl px-8 py-8 space-y-8'>
+                        <div className='w-1/2 mx-auto text-center bg-teal-500 rounded-3xl p-1'>
                             <p className='text-white text-2xl font-serif font-bold'>Claim Status</p>
                         </div>
                         <div className='flex flex-row justify-between'>
-                            <p className='text-gray-800 text-base font-serif font-bold'>Claim Id: </p>
-                            <p className='text-gray-800 text-base font-serif font-bold'>{claimResponse.claimId}</p>
+                            <p className='text-white text-base font-serif font-bold'>Claim Id: </p>
+                            <p className='text-white text-base font-serif font-bold'>{claimResponse.claimId}</p>
                         </div>
                         <div className='flex flex-row justify-between'>
-                            <p className='text-gray-800 text-base font-serif font-bold'>Claim Status: </p>
-                            <p className='text-gray-800 text-base font-serif font-bold'>{claimResponse.claimStatus}</p>
+                            <p className='text-white text-base font-serif font-bold'>Claim Status: </p>
+                            <p className='text-white text-base font-serif font-bold'>{claimResponse.claimStatus}</p>
                         </div>
                         <div className='flex flex-row justify-between'>
-                            <p className='text-gray-800 text-base font-serif font-bold'>Description: </p>
-                            <p className='text-gray-800 text-base font-serif font-bold pl-6'>{claimResponse.claimDescription}</p>
+                            <p className='text-white text-base font-serif font-bold'>Description: </p>
+                            <p className='text-white text-base font-serif font-bold pl-6'>{claimResponse.claimDescription}</p>
                         </div>
                     </div>
                 </div>

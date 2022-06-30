@@ -19,6 +19,7 @@ export const getBillDataById = async (memberId) => {
         //     }, 1000);
         // }
         const result = await response.json();
+        console.log(result);
         if (response.ok) {
             return result;
         }
@@ -27,6 +28,9 @@ export const getBillDataById = async (memberId) => {
         }
         else if(result.status === 500){
             console.log(result.message);
+        }else if(response.status === 404){
+            // console.log(result);
+            return result;
         }
     } catch (error) {
         console.log('Something went wrong , Please try again later.')
