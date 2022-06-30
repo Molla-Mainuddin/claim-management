@@ -79,7 +79,7 @@ const AddClaim = () => {
     return (
         <div className='flex flex-row'>
             <SideBar />
-            <div className='bg-home-image bg-no-repeat bg-cover bg-right flex justify-center w-full lg:w-4/5 lg:pt-20 px-10 mt-4'>
+            <div className='bg-home-image bg-no-repeat bg-cover bg-right flex justify-center w-full lg:w-4/5 lg:pt-24 px-10'>
                 <div className='h-[85%] w-[90%] shadow-2xl rounded-xl p-4'>
                     <div className='w-[30%] mx-auto text-center bg-teal-500 rounded-3xl py-2 '>
                         <p className='text-white text-2xl font-serif font-bold '>Add Claim</p>
